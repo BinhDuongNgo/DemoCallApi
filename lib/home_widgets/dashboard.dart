@@ -79,22 +79,20 @@ class DashBoard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.15,
-                  height: MediaQuery.of(context).size.height * 0.1,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(100),
                     color: colorBack.withOpacity(0.1),
                   ),
                   child: Icon(
                     icon,
-                    size: 50,
+                    size: 15,
                     color: colorText,
                   ),
                 ),
                 Text(
                   number,
                   style: TextStyle(
-                    fontSize: 28,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: colorText,
                   ),
@@ -102,7 +100,7 @@ class DashBoard extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    fontSize: 28,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: colorText,
                   ),

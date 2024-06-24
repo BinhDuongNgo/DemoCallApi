@@ -63,67 +63,85 @@ class _DialogEditPersonalState extends State<DialogEditPersonal> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.6,
+        height: MediaQuery.of(context).size.height * 0.75,
         child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Update Information personal',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 20),
-              Column(
-                children: [
-                  TextFormControllerEdit("Họ và tên", _fullnameController,
-                      widget.lists['fullname']),
-                  TextFormControllerEdit(
-                      "Giới tính", _genderController, widget.lists['gender']),
-                  TextFormControllerEdit("Số điện thoại",
-                      _phoneNumberController, widget.lists['phone number']),
-                  TextFormControllerEdit(
-                      "Email", _emailController, widget.lists['email']),
-                ],
-              ),
-              Spacer(),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Row(
-                  children: [
-                    TextButton(
-                      onPressed: () async {
-                        await updateUserInfo();
-                      },
-                      child: Text(
-                        'SAVE',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
+          padding: const EdgeInsets.all(5.0),
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.7,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  child: const Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: Text(
+                      'Update Information personal',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text(
-                        'CLOSE',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.6,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        TextFormControllerEdit("Họ và tên", _fullnameController,
+                            widget.lists['fullname']),
+                        TextFormControllerEdit(
+                            "Giới tính", _genderController, widget.lists['gender']),
+                        TextFormControllerEdit("Số điện thoại",
+                            _phoneNumberController, widget.lists['phone number']),
+                        TextFormControllerEdit(
+                            "Email", _emailController, widget.lists['email']),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () async {
+                            await updateUserInfo();
+                          },
+                          child: Text(
+                            'SAVE',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text(
+                            'CLOSE',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

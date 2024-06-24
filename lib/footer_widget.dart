@@ -26,6 +26,7 @@ class FooterWidget extends StatelessWidget {
                   "@Globits",
                   style: TextStyle(
                     color: Colors.white,
+                    fontSize: 10,
                   ),
                 ),
               ),

@@ -54,25 +54,31 @@ class _PersonalInformationElementState extends State<PersonalInformationElement>
                 height: MediaQuery.of(context).size.height * 0.15,
                 child: Row(
                   children: [
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        TextWidgetTitles(title: "Họ và tên: "),
-                        TextWidgetTitles(title: "Giới tính: "),
-                        TextWidgetTitles(title: "Số điện thoại: "),
-                        TextWidgetTitles(title: "Email: "),
-                      ],
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          TextWidgetTitles(title: "Họ và tên: "),
+                          TextWidgetTitles(title: "Giới tính: "),
+                          TextWidgetTitles(title: "Số điện thoại: "),
+                          TextWidgetTitles(title: "Email: "),
+                        ],
+                      ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        TextWidgetInfor(title: _fullname),
-                        TextWidgetInfor(title: _gender),
-                        TextWidgetInfor(title: _phoneNumber),
-                        TextWidgetInfor(title: _email),
-                      ],
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          TextWidgetInfor(title: _fullname),
+                          TextWidgetInfor(title: _gender),
+                          TextWidgetInfor(title: _phoneNumber),
+                          TextWidgetInfor(title: _email),
+                        ],
+                      ),
                     ),
                   ],
                 ),

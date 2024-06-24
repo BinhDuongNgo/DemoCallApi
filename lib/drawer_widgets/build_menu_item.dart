@@ -1,3 +1,4 @@
+import 'package:demo_call_api/pages/attendance_page.dart';
 import 'package:demo_call_api/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:demo_call_api/drawer_widgets/menu_item.dart';
@@ -18,6 +19,7 @@ class BuildMenuItem extends StatelessWidget {
   Widget build(BuildContext context) {
     String home = "Home";
     String profile = "Profile";
+    String attendance = "Attendance";
     return Container(
       child: Wrap(
         children: [
@@ -30,6 +32,11 @@ class BuildMenuItem extends StatelessWidget {
             profile,
             Icons.person,
             onTap: () => _navigateTo(context, ProfilePage(profile, username: username, id: id, lists: lists)),
+          ),
+          MenuItem(
+            attendance,
+            Icons.edit_calendar_outlined,
+            onTap: () => _navigateTo(context, AttendancePage(attendance, username: username, id: id, lists: lists)),
           ),
         ],
       ),

@@ -32,12 +32,15 @@ class _UserState extends State<User> {
             SizedBox(
               height: 10,
             ),
-            Text(
-              widget.lists['fullname'],
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
+            Center(
+              child: Text(
+                widget.lists['fullname'],
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             SizedBox(

@@ -86,7 +86,7 @@ class _TextFormState extends State<TextForm> {
 
   Widget _ButtonModal(BuildContext context, String login) {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.07,
+      height: MediaQuery.of(context).size.height * 0.1,
       child: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: InkWell(

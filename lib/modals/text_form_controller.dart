@@ -9,7 +9,7 @@ class TextFormController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(left: 10, right: 10,),
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
@@ -23,7 +23,7 @@ class TextFormController extends StatelessWidget {
             borderSide: BorderSide(
               width: 2,
               color: Colors.white,
-            )
+            ),
           ),
           focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(

@@ -54,25 +54,31 @@ class _EmployeeInformationElementState extends State<EmployeeInformationElement>
                 height: MediaQuery.of(context).size.height * 0.15,
                 child: Row(
                   children: [
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        TextWidgetTitles(title: "Địa chỉ: "),
-                        TextWidgetTitles(title: "Mã nhân viên: "),
-                        TextWidgetTitles(title: "Trạng thái nhân viên: "),
-                        TextWidgetTitles(title: "Tình trạng hôn nhân: "),
-                      ],
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          TextWidgetTitles(title: "Địa chỉ: "),
+                          TextWidgetTitles(title: "Mã nhân viên: "),
+                          TextWidgetTitles(title: "Trạng thái nhân viên: "),
+                          TextWidgetTitles(title: "Tình trạng hôn nhân: "),
+                        ],
+                      ),
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        TextWidgetInfor(title: _address),
-                        TextWidgetInfor(title: _idEmployee),
-                        TextWidgetInfor(title: _status),
-                        TextWidgetInfor(title: _work),
-                      ],
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          TextWidgetInfor(title: _address),
+                          TextWidgetInfor(title: _idEmployee),
+                          TextWidgetInfor(title: _status),
+                          TextWidgetInfor(title: _work),
+                        ],
+                      ),
                     ),
                   ],
                 ),

@@ -63,67 +63,85 @@ class _DialogEditEmployeeState extends State<DialogEditEmployee> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.6,
+        height: MediaQuery.of(context).size.height * 0.75,
         child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Update Information employee',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 20),
-              Column(
-                children: [
-                  TextFormControllerEdit("Địa chỉ", _addressController,
-                      widget.lists['address']),
-                  TextFormControllerEdit(
-                      "Mã nhân viên", _idEmployeeController, widget.lists['idEmployee']),
-                  TextFormControllerEdit("Trạng thái nhân viên",
-                      _statusController, widget.lists['status']),
-                  TextFormControllerEdit(
-                      "Tình trạng hôn nhân", _workController, widget.lists['work']),
-                ],
-              ),
-              Spacer(),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: Row(
-                  children: [
-                    TextButton(
-                      onPressed: () async {
-                        await updateUserInfo();
-                      },
-                      child: Text(
-                        'SAVE',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
+          padding: const EdgeInsets.all(5.0),
+          child: Container(
+            height: MediaQuery.of(context).size.height * 0.7,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  child: const Padding(
+                    padding: EdgeInsets.all(5.0),
+                    child: Text(
+                      'Update Information employee',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text(
-                        'CLOSE',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ],
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.6,
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        TextFormControllerEdit("Địa chỉ", _addressController,
+                            widget.lists['address']),
+                        TextFormControllerEdit(
+                            "Mã nhân viên", _idEmployeeController, widget.lists['idEmployee']),
+                        TextFormControllerEdit("Trạng thái nhân viên",
+                            _statusController, widget.lists['status']),
+                        TextFormControllerEdit(
+                            "Tình trạng hôn nhân", _workController, widget.lists['work']),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  child: Align(
+                    alignment: Alignment.bottomRight,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                          onPressed: () async {
+                            await updateUserInfo();
+                          },
+                          child: Text(
+                            'SAVE',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text(
+                            'CLOSE',
+                            style: TextStyle(
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

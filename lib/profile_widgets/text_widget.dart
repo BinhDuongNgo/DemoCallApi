@@ -14,6 +14,8 @@ class TextWidgetInfor extends StatelessWidget {
         fontSize: 15,
         color: Colors.black,
       ),
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }
@@ -52,7 +54,7 @@ class TextWidgetTitle extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              fontSize: 25,
+              fontSize: 20,
               fontWeight: FontWeight.bold,
               color: color,
             ),
@@ -91,7 +93,7 @@ class TextWidgetTitle extends StatelessWidget {
                 }
               }
             },
-            icon: Icon(Icons.edit),
+            icon: Icon(Icons.edit,size: 20,),
           ),
         ],
       ),
