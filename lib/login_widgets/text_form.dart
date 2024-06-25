@@ -37,13 +37,16 @@ class _TextFormState extends State<TextForm> {
         },
       );
       if (response.statusCode == 200) {
-        print('done');
         Map<String, dynamic> jsonResponse = jsonDecode(response.body);
         setState(() {
           _token = jsonResponse['access_token'];
         });
-        print(_token);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage("Home",token: _token)));
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomePage("Home", token: _token),
+          ),
+        );
       } else {
         print('error');
       }
@@ -56,7 +59,6 @@ class _TextFormState extends State<TextForm> {
   Widget build(BuildContext context) {
     String username = "Username";
     String password = "Password";
-
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: ClipRRect(
@@ -92,8 +94,8 @@ class _TextFormState extends State<TextForm> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        TextFormController(username, _usernameController),
-                        TextFormController(password, _passwordController),
+                        TextFormController(username, _usernameController, false),
+                        TextFormController(password, _passwordController, true),
                       ],
                     ),
                   ),
@@ -101,7 +103,10 @@ class _TextFormState extends State<TextForm> {
                     padding: const EdgeInsets.all(10.0),
                     child: GestureDetector(
                       onTap: () {
-                        login(_usernameController.text.toString(), _passwordController.text.toString());
+                        login(
+                          _usernameController.text.toString(),
+                          _passwordController.text.toString(),
+                        );
                       },
                       child: Container(
                         height: 50,

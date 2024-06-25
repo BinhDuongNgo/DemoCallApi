@@ -27,7 +27,7 @@ class _WorkPageState extends State<WorkPage> {
         appBar: const AppbarWidget(),
         body: Column(
           children: [
-            TitlePageWidget(widget.title),
+            TitlePageWidgetWork(widget.title, widget.token),
             Expanded(
               child: KanbanBoardWidget(token: widget.token),
             ),

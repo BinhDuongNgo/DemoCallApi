@@ -8,7 +8,7 @@ class FooterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Footer(
       padding: EdgeInsets.all(10),
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 233, 237, 220),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

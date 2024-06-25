@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class TextFormController extends StatelessWidget {
   final String name;
   final TextEditingController controller;
-  const TextFormController(this.name,this.controller, {Key? key}) : super(key: key);
+  final bool _isObscured;
+  const TextFormController(this.name,this.controller,this._isObscured, {Key? key}) : super(key: key);
 
 
   @override
@@ -11,6 +12,7 @@ class TextFormController extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10,),
       child: TextFormField(
+        obscureText: _isObscured,
         controller: controller,
         decoration: InputDecoration(
           filled: true,

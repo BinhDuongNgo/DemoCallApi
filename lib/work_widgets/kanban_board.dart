@@ -16,30 +16,37 @@ class KanbanBoardWidget extends StatefulWidget {
 class _KanbanBoardWidgetState extends State<KanbanBoardWidget> {
   @override
   Widget build(BuildContext context) {
-    return BoardView(
-      lists: [
-        BoardList(
-          header: [
-            Header(title: "To do",numberOfTasks: " (3)",),
-          ],
-          items: [
-            BoardItem(
-              item: Item(),
-            ),
-          ],
-        ),
-        BoardList(
-          header: [
-            Header(title: "To do",numberOfTasks: " (3)",),
-          ],
-          items: [
-            BoardItem(
-              item: Item(),
-            ),
-          ],
-        ),
-      ],
+    return Container(
+      child: BoardView(
+        lists: [
+          BoardList(
+            header: [
+              Header(
+                title: "To do",
+                numberOfTasks: " (3)",
+              ),
+            ],
+            items: [
+              BoardItem(
+                item: Item(),
+              ),
+            ],
+          ),
+          BoardList(
+            header: [
+              Header(
+                title: "To do",
+                numberOfTasks: " (3)",
+              ),
+            ],
+            items: [
+              BoardItem(
+                item: Item(),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
-

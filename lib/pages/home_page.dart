@@ -1,4 +1,3 @@
-
 import 'package:demo_call_api/appbar_widget.dart';
 import 'package:demo_call_api/home_widgets/dashboard.dart';
 import 'package:flutter/material.dart';
@@ -23,7 +22,9 @@ class _HomePageState extends State<HomePage> {
         return false;
       },
       child: Scaffold(
-        drawer: DrawerWidget(token: widget.token,),
+        drawer: DrawerWidget(
+          token: widget.token,
+        ),
         appBar: AppbarWidget(),
         body: Column(
           children: [
