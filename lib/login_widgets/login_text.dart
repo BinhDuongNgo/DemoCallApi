@@ -5,14 +5,14 @@ class LoginText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.05,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Center(
         child: Text(
           "LOGIN HERE",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 25,
+            fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),

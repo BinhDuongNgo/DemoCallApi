@@ -1,21 +1,21 @@
-
 import 'package:demo_call_api/appbar_widget.dart';
-import 'package:demo_call_api/home_widgets/dashboard.dart';
-import 'package:flutter/material.dart';
 import 'package:demo_call_api/drawer_widgets/drawer.dart';
 import 'package:demo_call_api/footer_widget.dart';
 import 'package:demo_call_api/title_page_widget.dart';
+import 'package:demo_call_api/work_widgets/kanban_board.dart';
+import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
+
+class WorkPage extends StatefulWidget {
   final String title;
   final String token;
-  const HomePage(this.title, {super.key, required this.token});
+  const WorkPage(this.title, {super.key, required this.token});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<WorkPage> createState() => _WorkPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _WorkPageState extends State<WorkPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -24,14 +24,12 @@ class _HomePageState extends State<HomePage> {
       },
       child: Scaffold(
         drawer: DrawerWidget(token: widget.token,),
-        appBar: AppbarWidget(),
+        appBar: const AppbarWidget(),
         body: Column(
           children: [
             TitlePageWidget(widget.title),
-            const Expanded(
-              child: SingleChildScrollView(
-                child: DashBoard(),
-              ),
+            Expanded(
+              child: KanbanBoardWidget(token: widget.token),
             ),
             const FooterWidget(),
           ],

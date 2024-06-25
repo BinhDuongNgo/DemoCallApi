@@ -57,57 +57,55 @@ class _TextFormState extends State<TextForm> {
     String username = "Username";
     String password = "Password";
 
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.6,
-      child: Padding(
-        padding: const EdgeInsets.all(50),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(30),
-          child: Container(
-            color: Colors.white30,
-            child: Stack(
-              children: [
-                BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 4.0,
-                    sigmaY: 4.0,
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Container(
+          color: Colors.white30,
+          child: Stack(
+            children: [
+              BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 4.0,
+                  sigmaY: 4.0,
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.white.withOpacity(0.15)),
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Colors.black.withOpacity(0.15),
+                      Colors.black.withOpacity(0.05),
+                    ],
                   ),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.white.withOpacity(0.15)),
-                    gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Colors.black.withOpacity(0.15),
-                        Colors.black.withOpacity(0.05),
+              ),
+              Column(
+                children: [
+                  LoginText(),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.3,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TextFormController(username, _usernameController),
+                        TextFormController(password, _passwordController),
                       ],
                     ),
                   ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    LoginText(),
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.25,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          TextFormController(username, _usernameController),
-                          TextFormController(password, _passwordController),
-                        ],
-                      ),
-                    ),
-                    GestureDetector(
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: GestureDetector(
                       onTap: () {
                         login(_usernameController.text.toString(), _passwordController.text.toString());
                       },
                       child: Container(
-                        height: 60,
-                        width: 300,
+                        height: 50,
+                        width: 200,
                         decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.circular(30),
@@ -120,10 +118,10 @@ class _TextFormState extends State<TextForm> {
                         ),
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

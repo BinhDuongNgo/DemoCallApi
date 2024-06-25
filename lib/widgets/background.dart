@@ -1,5 +1,4 @@
 import 'package:demo_call_api/login_widgets/logo.dart';
-import 'package:demo_call_api/login_widgets/signin_button.dart';
 import 'package:demo_call_api/login_widgets/text_form.dart';
 import 'package:flutter/material.dart';
 
@@ -22,10 +21,10 @@ class BackgroundImage extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Logo(),
               TextForm(),
-              SignInButton(),
             ],
           ),
         ),

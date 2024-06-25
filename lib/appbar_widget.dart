@@ -34,16 +34,6 @@ class AppbarWidget extends StatelessWidget implements PreferredSizeWidget {
       PopupMenuItem<TestEnum>(
         value: TestEnum.A,
         child: ListTile(
-          leading: Icon(Icons.person),
-          title: Text("Profile"),
-          onTap: () {
-
-          },
-        ),
-      ),
-      PopupMenuItem<TestEnum>(
-        value: TestEnum.A,
-        child: ListTile(
           leading: Icon(Icons.logout),
           title: Text("Logout"),
           onTap: () {

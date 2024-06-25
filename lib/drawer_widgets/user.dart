@@ -32,8 +32,8 @@ class _UserState extends State<User> {
             Center(
               child: Text(
                 widget.token,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+                // maxLines: 1,
+                // overflow: TextOverflow.ellipsis,
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -43,24 +43,6 @@ class _UserState extends State<User> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
-                    color: Colors.purple.shade100,
-                  ),
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.person,
-                      color: Colors.purple,
-                    ),
-                    onPressed: () {},
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
                 Container(
                   width: 40,
                   height: 40,

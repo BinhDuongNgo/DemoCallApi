@@ -1,4 +1,5 @@
 
+import 'package:demo_call_api/pages/work_page.dart';
 import 'package:flutter/material.dart';
 import 'package:demo_call_api/drawer_widgets/menu_item.dart';
 import 'package:demo_call_api/pages/home_page.dart';
@@ -15,6 +16,7 @@ class BuildMenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String home = "Home";
+    String work = "Work";
     return Container(
       child: Wrap(
         children: [
@@ -22,6 +24,11 @@ class BuildMenuItem extends StatelessWidget {
             home,
             Icons.home,
             onTap: () => _navigateTo(context, HomePage(home, token: token)),
+          ),
+          MenuItem(
+            work,
+            Icons.task,
+            onTap: () => _navigateTo(context, WorkPage(work, token: token)),
           ),
         ],
       ),

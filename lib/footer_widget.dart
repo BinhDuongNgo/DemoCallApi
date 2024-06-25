@@ -26,7 +26,7 @@ class FooterWidget extends StatelessWidget {
                   "@Globits",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 10,
+                    fontSize: 12,
                   ),
                 ),
               ),
@@ -38,7 +38,7 @@ class FooterWidget extends StatelessWidget {
               child: Text(
                 "Developed by Globits",
                 style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.black,fontWeight: FontWeight.bold,fontSize: 12,
                 ),
               ),
             ),
