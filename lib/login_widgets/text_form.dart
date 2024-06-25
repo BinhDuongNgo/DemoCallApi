@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:ui';
 import 'package:demo_call_api/login_widgets/login_text.dart';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:demo_call_api/pages/home_page.dart';
+import 'package:flutter/material.dart';
 import 'package:demo_call_api/modals/text_form_controller.dart';
+import 'package:http/http.dart';
 
 class TextForm extends StatefulWidget {
   const TextForm({super.key});
@@ -16,19 +16,47 @@ class TextForm extends StatefulWidget {
 class _TextFormState extends State<TextForm> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  String _token = '';
 
-  @override
-  void dispose() {
-    _usernameController.dispose();
-    _passwordController.dispose();
-    super.dispose();
+  void login(String username, String password) async {
+    try {
+      Response response = await post(
+        Uri.parse(
+            'https://auth.globits.net/auth/realms/HrPlatform/protocol/openid-connect/token'),
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': '*/*'
+        },
+        body: {
+          'username': username,
+          'password': password,
+          'scope': 'openid',
+          'grant_type': 'password',
+          'client_id': 'admin-cli',
+        },
+      );
+      if (response.statusCode == 200) {
+        print('done');
+        Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+        setState(() {
+          _token = jsonResponse['access_token'];
+        });
+        print(_token);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage("Home",token: _token)));
+      } else {
+        print('error');
+      }
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     String username = "Username";
     String password = "Password";
-    String login = "LOGIN";
+
     return SizedBox(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.6,
@@ -73,7 +101,25 @@ class _TextFormState extends State<TextForm> {
                         ],
                       ),
                     ),
-                    _ButtonModal(context, login),
+                    GestureDetector(
+                      onTap: () {
+                        login(_usernameController.text.toString(), _passwordController.text.toString());
+                      },
+                      child: Container(
+                        height: 60,
+                        width: 300,
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Sign in',
+                            style: TextStyle(color: Colors.white, fontSize: 18),
+                          ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -82,85 +128,5 @@ class _TextFormState extends State<TextForm> {
         ),
       ),
     );
-  }
-
-  Widget _ButtonModal(BuildContext context, String login) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.1,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10),
-        child: InkWell(
-          onTap: () {
-            _login(context);
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.green,
-            ),
-            child: Center(
-              child: Text(
-                login,
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Future<void> _login(BuildContext context) async {
-    var url = Uri.parse('https://666950f72e964a6dfed49ec0.mockapi.io/list');
-    try {
-      var response = await http.get(url);
-      if (response.statusCode == 200) {
-        var users = json.decode(response.body) as List;
-        bool isAuthenticated = false;
-        Map list = {};
-        String id = '';
-
-        for (var user in users) {
-          if (user['username'] == _usernameController.text &&
-              user['password'] == _passwordController.text) {
-            isAuthenticated = true;
-            list = user['information'];
-            id = user['id'];
-            break;
-          }
-        }
-
-        if (isAuthenticated) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Login successful!')),
-          );
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomePage(
-                "Home",
-                username: _usernameController.text,
-                lists: list,
-                id: id,
-              ),
-            ),
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Invalid username or password')),
-          );
-        }
-      } else {
-        throw Exception('Failed to load users');
-      }
-    } catch (e) {
-      print(e.toString());
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to connect to the server')),
-      );
-    }
   }
 }

@@ -1,12 +1,9 @@
 import 'package:demo_call_api/pages/login_page.dart';
-import 'package:demo_call_api/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class User extends StatefulWidget {
-  final String username;
-  final String id;
-  final Map lists;
-  const User({super.key, required this.username, required this.id, required this.lists});
+  final String token;
+  const User({super.key, required this.token});
 
   @override
   State<User> createState() => _UserState();
@@ -34,13 +31,10 @@ class _UserState extends State<User> {
             ),
             Center(
               child: Text(
-                widget.lists['fullname'],
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
+                widget.token,
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: Colors.white),
               ),
             ),
             SizedBox(
@@ -61,9 +55,7 @@ class _UserState extends State<User> {
                       Icons.person,
                       color: Colors.purple,
                     ),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>ProfilePage("Profile", username: widget.username, id: widget.id, lists: widget.lists)));
-                    },
+                    onPressed: () {},
                   ),
                 ),
                 SizedBox(
@@ -82,7 +74,8 @@ class _UserState extends State<User> {
                       color: Colors.orange,
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
                     },
                   ),
                 ),

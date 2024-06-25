@@ -3,10 +3,8 @@ import 'package:demo_call_api/drawer_widgets/build_menu_item.dart';
 import 'package:demo_call_api/drawer_widgets/user.dart';
 
 class DrawerWidget extends StatelessWidget {
-  final String username;
-  final String id;
-  final Map lists;
-  const DrawerWidget({super.key, required this.username, required this.id, required this.lists});
+  final String token;
+  const DrawerWidget({super.key, required this.token});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +20,10 @@ class DrawerWidget extends StatelessWidget {
                 const SizedBox(height: 20),
                 const Divider(height: 1, color: Colors.white),
                 const SizedBox(height: 20),
-                User(username: username, id: id, lists: lists,),
+                User(token: token),
                 const SizedBox(height: 20),
                 const Divider(height: 1, color: Colors.white),
-                BuildMenuItem(username: username, id: id, lists: lists,),
+                BuildMenuItem(token: token,),
               ],
             ),
           ),
