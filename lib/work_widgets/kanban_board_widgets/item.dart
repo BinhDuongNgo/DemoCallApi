@@ -2,7 +2,8 @@ import 'package:demo_call_api/work_widgets/kanban_board_widgets/information.dart
 import 'package:flutter/material.dart';
 
 class Item extends StatefulWidget {
-  const Item({super.key});
+  final List list;
+  const Item({super.key, required this.list});
 
   @override
   State<Item> createState() => _ItemState();
@@ -17,10 +18,9 @@ class _ItemState extends State<Item> {
         padding: EdgeInsets.all(5),
         child: Container(
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 239, 238, 221),
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.grey, width: 0.5)
-          ),
+              color: Color.fromARGB(255, 239, 238, 221),
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(color: Colors.grey, width: 0.5)),
           child: Column(
             children: [
               Container(
@@ -28,10 +28,16 @@ class _ItemState extends State<Item> {
                 child: Padding(
                   padding: EdgeInsets.all(5),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Text("globits-hr#116"),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.4,
+                        child: Text(
+                          "statusName",
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
                       IconButton(
                         onPressed: () {},
                         icon: Icon(
@@ -56,12 +62,30 @@ class _ItemState extends State<Item> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Information(title: "Title: ", informationTasks: "informationTitle",),
-                        Information(title: "Project: ", informationTasks: "informationProject",),
-                        Information(title: "Activities: ", informationTasks: "informationActivities",),
-                        Information(title: "Priority: ", informationTasks: "informationPriority",),
-                        Information(title: "Role: ",informationTasks: "informationRole",),
-                        Information(title: "Update time: ",informationTasks: "informationUpdateTime",),
+                        Information(
+                          title: "Title: ",
+                          informationTasks: "informationTitle",
+                        ),
+                        Information(
+                          title: "Project: ",
+                          informationTasks: "informationProject",
+                        ),
+                        Information(
+                          title: "Activities: ",
+                          informationTasks: "informationActivities",
+                        ),
+                        Information(
+                          title: "Priority: ",
+                          informationTasks: "informationPriority",
+                        ),
+                        Information(
+                          title: "Role: ",
+                          informationTasks: "informationRole",
+                        ),
+                        Information(
+                          title: "Update time: ",
+                          informationTasks: "informationUpdateTime",
+                        ),
                       ],
                     ),
                   ),

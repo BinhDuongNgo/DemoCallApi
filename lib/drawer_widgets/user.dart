@@ -29,17 +29,6 @@ class _UserState extends State<User> {
             SizedBox(
               height: 10,
             ),
-            Center(
-              child: Text(
-                widget.token,
-                // maxLines: 1,
-                // overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

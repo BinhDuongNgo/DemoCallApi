@@ -41,6 +41,7 @@ class _TextFormState extends State<TextForm> {
         setState(() {
           _token = jsonResponse['access_token'];
         });
+        print(_token);
         Navigator.push(
           context,
           MaterialPageRoute(

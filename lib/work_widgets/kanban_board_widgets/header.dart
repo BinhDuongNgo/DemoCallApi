@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Header extends StatelessWidget {
   final String title;
-  final String numberOfTasks;
-  const Header({super.key, required this.title, required this.numberOfTasks});
+  final String count;
+  const Header({super.key, required this.title, required this.count});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class Header extends StatelessWidget {
               ),
             ),
             Text(
-              numberOfTasks,
+              (" ($count)"),
               style: TextStyle(
                 color: Colors.white,
               ),

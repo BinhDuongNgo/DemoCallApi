@@ -1,8 +1,5 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
-
 class TitlePageWidget extends StatelessWidget {
   final String title;
   const TitlePageWidget(this.title, {Key? key}) : super(key: key);
@@ -55,34 +52,35 @@ class TitlePageWidgetWork extends StatefulWidget {
 }
 
 class _TitlePageWidgetWorkState extends State<TitlePageWidgetWork> {
-  void getList(String token) async {
-    try {
-      Response response = await post(
-        Uri.parse('https://hr-api.globits.net/api/hr-task/get-list-by-limit'),
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Accept': '*/*'
-        },
-        body: {
-          "increasingCodeOrder": false,
-          "increasingPriorityOrder": false,
-          "increasingLastModifyDate": false,
-          "pageIndex": 1,
-          "pageSize": 10,
-          "tasksOfAllProjects": true
-        },
-      );
-      if (response.statusCode == 200) {
-        var lists = json.decode(response.body) as List;
-        print(lists);
-      } else {
-        print('error');
-      }
-    } catch (e) {
-      print(e.toString());
-    }
-  }
+  // void getList(String token) async {
+  //   try {
+  //     Response response = await post(
+  //       Uri.parse('https://hr-api.globits.net/api/hr-task/get-list-by-limit'),
+  //       headers: {
+  //         "Access-Control-Allow-Origin": "*",
+  //         'Content-Type': 'application/json',
+  //         'Accept': 'application/json',
+  //         'Authorization': 'Bearer $token',
+  //       },
+  //       body: jsonEncode({
+  //         "increasingCodeOrder": false,
+  //         "increasingPriorityOrder": false,
+  //         "increasingLastModifyDate": false,
+  //         "pageIndex": 1,
+  //         "pageSize": 10,
+  //         "tasksOfAllProjects": true,
+  //       }),
+  //     );
+  //     if (response.statusCode == 200) {
+  //       var lists = json.decode(response.body) as List;
+  //     } else {
+  //       // print('error');
+  //       print('Error');
+  //     }
+  //   } catch (e) {
+  //     print(e.toString());
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -105,7 +103,7 @@ class _TitlePageWidgetWorkState extends State<TitlePageWidgetWork> {
                 ),
                 TextButton(
                   onPressed: () {
-                    getList(widget.token);
+                    // getList(widget.token);
                   },
                   child: Text(
                     "Load Kanban",

@@ -9,7 +9,9 @@ import 'package:flutter/material.dart';
 class WorkPage extends StatefulWidget {
   final String title;
   final String token;
-  const WorkPage(this.title, {super.key, required this.token});
+  final List<dynamic> list;
+  final List<dynamic> countList;
+  const WorkPage(this.title, {super.key, required this.token, required this.list, required this.countList});
 
   @override
   State<WorkPage> createState() => _WorkPageState();
@@ -27,9 +29,9 @@ class _WorkPageState extends State<WorkPage> {
         appBar: const AppbarWidget(),
         body: Column(
           children: [
-            TitlePageWidgetWork(widget.title, widget.token),
+            TitlePageWidget(widget.title),
             Expanded(
-              child: KanbanBoardWidget(token: widget.token),
+              child: KanbanBoardWidget(token: widget.token, list: widget.list, countList: widget.countList),
             ),
             const FooterWidget(),
           ],
