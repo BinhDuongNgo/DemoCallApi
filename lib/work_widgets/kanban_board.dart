@@ -82,23 +82,3 @@ class _KanbanBoardWidgetState extends State<KanbanBoardWidget> {
     );
   }
 }
-
-// {
-//   'To do': [],
-//   'Doing': [
-//     {
-//       'id': '1'
-//       'status': 'Doing'
-//     },
-//     {
-//       'id': '2'
-//       'status': 'Doing'
-//     }
-//   ],
-//   'Done': [
-//     {
-//       'id': '3',
-//       'status': 'Done'
-//     }
-//   ]
-// }
