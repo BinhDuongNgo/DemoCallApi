@@ -21,8 +21,8 @@ class TaskWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LongPressDraggable<List<Map<String, dynamic>>>(
-      data: [data],
+    return LongPressDraggable<Map<String, dynamic>>(
+      data: data,
       onDragStarted: dragStartedCallback,
       onDragEnd: dragEndCallback,
       onDragUpdate: dragUpdateCallback,
