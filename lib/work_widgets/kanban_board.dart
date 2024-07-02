@@ -71,8 +71,8 @@ class _KanbanBoardWidgetState extends State<KanbanBoardWidget> {
     int countFeedback = 0;
     int countTested = 0;
     int countPending = 0;
-    int countReleasedDev = 0;
-    int countReleasedProd = 0;
+    int countReleaseDev = 0;
+    int countReleaseProd = 0;
     int countCompleted = 0;
     List<int> _countList = [];
 
@@ -89,10 +89,10 @@ class _KanbanBoardWidgetState extends State<KanbanBoardWidget> {
         countTested++;
       } else if (item["statusName"] == "Pending") {
         countPending++;
-      } else if (item["statusName"] == "Released Dev") {
-        countReleasedDev++;
-      } else if (item["statusName"] == "Released Prod") {
-        countReleasedProd++;
+      } else if (item["statusName"] == "Release Dev") {
+        countReleaseDev++;
+      } else if (item["statusName"] == "Release Prod") {
+        countReleaseProd++;
       } else if (item["statusName"] == "Completed") {
         countCompleted++;
       }
@@ -104,8 +104,8 @@ class _KanbanBoardWidgetState extends State<KanbanBoardWidget> {
     _countList.add(countFeedback);
     _countList.add(countTested);
     _countList.add(countPending);
-    _countList.add(countReleasedDev);
-    _countList.add(countReleasedProd);
+    _countList.add(countReleaseDev);
+    _countList.add(countReleaseProd);
     _countList.add(countCompleted);
 
     return _countList;
