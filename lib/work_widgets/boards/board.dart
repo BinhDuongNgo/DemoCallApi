@@ -62,31 +62,29 @@ class _BoardsState extends State<Boards> {
                         child: Column(
                           children: <Widget>[
                             Container(
-                              decoration: BoxDecoration(
-                                color: Colors.green,
-                                borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(8.0)),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    name,
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              height: MediaQuery.of(context).size.height * 0.06,
+                              color: Color.fromARGB(255, 39, 90, 41),
+                              child: Padding(
+                                padding: const EdgeInsets.all(5.0),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      name,
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                  IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.add,
-                                      size: 15,
-                                      color: Colors.white,
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.add,
+                                        color: Colors.grey,
+                                      ),
                                     ),
-                                  )
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                             Expanded(
@@ -130,7 +128,7 @@ class _BoardsState extends State<Boards> {
     });
   }
 
-    void _autoScroll(DragUpdateDetails details) {
+  void _autoScroll(DragUpdateDetails details) {
     if (!dragging) return;
     final double position = details.globalPosition.dx;
     final double screenWidth = MediaQuery.of(context).size.width;

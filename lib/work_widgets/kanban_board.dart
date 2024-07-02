@@ -68,7 +68,6 @@ class _KanbanBoardWidgetState extends State<KanbanBoardWidget> {
       }
     }
     Map<String, List<Map<String, dynamic>>> listsMap = _tasks;
-    print(listsMap);
     return listsMap;
   }
 

@@ -41,8 +41,7 @@ class _BuildMenuItemState extends State<BuildMenuItem> {
         }),
       );
       if (response.statusCode == 200) {
-        list = json.decode(response.body) as List<dynamic>;
-        print("List: $list");
+        list = json.decode(utf8.decode(response.bodyBytes)) as List<dynamic>;
         _navigateTo(context, WorkPage("Work", token: widget.token, list: list, countList: getTask(list)));
       } else {
         print('Error');
