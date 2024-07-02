@@ -7,11 +7,13 @@ class Boards extends StatefulWidget {
   final Map<String, List<Map<String, dynamic>>> boards;
   final List list;
   final List countList;
+  final bool isLoading;
   const Boards(
       {super.key,
       required this.boards,
       required this.list,
-      required this.countList});
+      required this.countList,
+      required this.isLoading});
   @override
   _BoardsState createState() => _BoardsState();
 }
@@ -91,20 +93,24 @@ class _BoardsState extends State<Boards> {
                               child: ListView(
                                 children: <Widget>[
                                   ...widget.boards[name]!.map(
-                                    (t) => TaskWidget(
-                                      data: t,
-                                      dragStartedCallback: () =>
-                                          setState(() => dragging = true),
-                                      dragEndCallback: (details) {
-                                        setState(() => dragging = false);
-                                        _scrollTimer?.cancel();
-                                      },
-                                      dragUpdateCallback: _autoScroll,
-                                      width: max(
-                                          MediaQuery.of(context).size.width /
-                                              widget.boards.keys.length,
-                                          250),
-                                    ),
+                                    (t) => widget.isLoading
+                                        ? CircularProgressIndicator()
+                                        : TaskWidget(
+                                            data: t,
+                                            dragStartedCallback: () =>
+                                                setState(() => dragging = true),
+                                            dragEndCallback: (details) {
+                                              setState(() => dragging = false);
+                                              _scrollTimer?.cancel();
+                                            },
+                                            dragUpdateCallback: _autoScroll,
+                                            width: max(
+                                                MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    widget.boards.keys.length,
+                                                250),
+                                          ),
                                   ),
                                 ],
                               ),
